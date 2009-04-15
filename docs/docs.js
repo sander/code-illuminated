@@ -269,13 +269,34 @@ App.initColumnSizes = function initSizes() {
   $(".code").css(App.columnCss);
 };
 
-$(window).ready(
-  function() {
+$(window).ready(   
+  function() {      
     App.pages["overview"] = $("#overview").get(0);
     App.initColumnSizes();
     window.setInterval(
       function() { App.navigate(); },
       100
     );
-    App.navigate();
+    App.navigate();       
+      
+    // Get the selected text in a cross-browser fashion      
+    function getSelectedText(){
+      if(window.getSelection){
+        return window.getSelection().toString();
+      } else if (document.getSelection) {
+        return document.getSelection();
+      } else if(document.selection){
+        return document.selection.createRange().text;
+      }
+    }
+    
+    // Double clicking on a word, it will be yellow highlighted 
+    // in the documentation and code section 
+    $("#content").bind("dblclick", function () {
+      var text = App.trim(getSelectedText());
+      if (text) {
+        jQuery("#content").removeHighlight().highlight(text);
+      }
+    });
+
   });
