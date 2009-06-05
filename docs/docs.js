@@ -67,7 +67,7 @@ App.menuItems = {};   // Has a {label, urlOrCallback} dict for each keyword.
 // The used structure for each block is:
 // {{{
 // <div class="documentation"> (...) </div>
-// <div class="code"> (...) </div>
+// <pre class="code prettyprint"> (...) </pre>
 // <div class="divider"/>
 // }}}
 // Documentation is parsed using [[http://wikicreole.org/|Creole]].
@@ -132,7 +132,7 @@ App.processCode = function processCode(code, div) {
       $(docs).css(App.columnCss);
       creole.parse(docs.get(0), this.text);
       $(div).append(docs);
-      var code = $('<div class="code">');
+      var code = $('<pre class="code prettyprint">');
       $(code).css(App.columnCss);
       code.text(this.code);
       $(div).append(code);
@@ -240,7 +240,10 @@ App.navigate = function navigate() {
       App.pages[newPage] = newDiv;
       jQuery.get(newPage,
                  {},
-                 function(code) { App.processCode(code, newDiv); },
+                 function(code) { 
+                   App.processCode(code, newDiv);                       
+                   prettyPrint();
+                 },
                  "text");
     }
     $(App.pages[newPage]).show();
@@ -298,5 +301,4 @@ $(window).ready(
         jQuery("#content").removeHighlight().highlight(text);
       }
     });
-
   });

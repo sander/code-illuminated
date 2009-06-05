@@ -9,7 +9,7 @@
 // The used structure for each block is:
 // {{{
 // <div class="documentation"> (...) </div>
-// <div class="code"> (...) </div>
+// <pre class="code prettyprint"> (...) </pre>
 // <div class="divider"/>
 // }}}
 
