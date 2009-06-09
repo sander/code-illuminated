@@ -261,11 +261,12 @@ App.initColumnSizes = function initSizes() {
   // Dynamically determine the column widths and padding based on
   // the font size.
   var padding = App.charWidth * 2;
+  var docWidth = $(".documentation").width();
+  var magic = 28;  // FIXME: without magic, the layout currently breaks.
   App.columnCss = {width: App.columnWidth,
                    paddingLeft: padding,
                    paddingRight: padding};
-  $("#content").css({width: (App.columnWidth + padding*2) * 2});
-  $(".documentation").css(App.columnCss);
+  $("#content").css({width: App.columnWidth + padding*2 + docWidth + magic});
   $(".code").css(App.columnCss);
 };
 

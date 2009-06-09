@@ -41,6 +41,7 @@ body {
 .documentation {
     float: left;
     line-height: 1.4em;
+    width: 24em !important;
 }
 
 .documentation h1, .documentation h2 {
@@ -52,7 +53,7 @@ body {
     font-family: monaco, consolas, andale mono, monospace;
     float: left;
     white-space: pre;
-    font-size: 6pt;
+    font-size: 9pt;
     background-color: #f0f0f0;
 }
 
