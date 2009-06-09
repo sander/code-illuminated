@@ -56,6 +56,23 @@ body {
     background-color: #f0f0f0;
 }
 
+/*
+ * Add a small triangle to each code block, to make it easy to distinguish
+ * sections. The triangle is drawn usng Tantek Celik's CSS polygon hack.
+ */
+.code::before {
+    content: "";
+    display: block;
+    position: absolute;
+    margin-top: 1.4em;
+    margin-left: -2ex;
+    width: 0;
+    height: 0;
+    border: .6em solid transparent;
+    border-left-color: #bbbbbb;
+    border-right: 0;
+}
+
 .divider {
     clear: both;
     height: 0;
