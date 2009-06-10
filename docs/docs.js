@@ -142,6 +142,8 @@ App.processCode = function processCode(code, div) {
       if (docsSurplus > 0)
         code.css({paddingBottom: docsSurplus + "px"});
 
+      code.append('\n');
+
       $(div).append('<div class="divider">');
     });
 
