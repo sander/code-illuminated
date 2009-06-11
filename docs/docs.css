@@ -4,6 +4,19 @@ body {
     text-align: center;
 }
 
+#title {
+    font-size: 13pt;
+    text-align: center;
+    text-transform: lowercase;
+    font-variant: small-caps;
+    margin-bottom: 3em;
+}
+#title i {
+    font-size: 14pt;
+    font-variant: normal;
+    text-transform: none;
+}
+
 .popup-enabled {
     cursor: pointer;
     border-bottom: dotted 1px black;
