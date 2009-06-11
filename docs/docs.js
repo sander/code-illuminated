@@ -138,6 +138,11 @@ App.processCode = function processCode(code, div) {
       code.text(this.code);
       $(div).append(code);
 
+      // Make sure the block ends with a blank line to make it high enough.
+      // For IE8 an extra space is needed, because otherwise the \n is ignored.
+      // FIXME: This doesn't fix issue 13 in IE7 yet.
+      code.append('\n ');
+
       var docsSurplus = docs.height() - code.height() + 1;
       if (docsSurplus > 0)
         code.css({paddingBottom: docsSurplus + "px"});
